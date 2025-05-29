@@ -1,0 +1,31 @@
+name: Deploy Site to Hostinger
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+
+            - name: Setup Hugo
+              uses: peaceiris/actions-hugo@v2
+              with:
+                  hugo-version: '0.147.5' # replace with your Hugo version
+
+            - name: Build Site
+              run: hugo --minify
+
+            - name: Deploy to Hostinger via rsync over SSH
+              uses: burnett01/rsync-deployments@5.2
+              with:
+                  switches: -avz --delete
+                  path: public/
+                  remote_path: ${{ secrets.DEPLOY_PATH }}
+                  remote_host: ${{ secrets.HOSTINGER_HOST }}
+                  remote_user: ${{ secrets.HOSTINGER_USER }}
+                  remote_key: ${{ secrets.HOSTINGER_KEY }}
