@@ -1,4 +1,4 @@
-name: Deploy Site to Hostinger
+name: Deploy Site to Hostinger by ip
 
 on:
     push:
