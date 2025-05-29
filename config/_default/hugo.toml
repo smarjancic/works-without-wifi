@@ -37,7 +37,7 @@ googleAnalytics = "G-CWG3F251WG"
   priority = 0.5
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
 
 [related]
   threshold = 0
