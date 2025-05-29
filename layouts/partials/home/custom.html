@@ -1,0 +1,24 @@
+<div id="background">
+	{{ partial "home/background.html" . }}
+	<section
+		class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 py-8"
+	>
+		{{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+		<a
+			href="/categories/{{ $name | urlize }}"
+			class="block bg-white rounded-lg shadow hover:shadow-md transition duration-200"
+		>
+			<img
+				src="/images/categories/{{ $name | urlize }}.png"
+				alt="{{ $name }}"
+				class="w-full h-48 object-cover rounded-t-lg"
+			/>
+			<div class="p-6">
+				<h2 class="text-xl font-semibold text-gray-800">
+					{{ $name | title }}
+				</h2>
+			</div>
+		</a>
+		{{ end }}
+	</section>
+</div>

@@ -1,0 +1,28 @@
+{{ define "main" }}
+<main class="card-grid">
+	<section class="card-wrapper">
+		{{ range .Pages }}
+		<article class="card">
+			{{ with .Params.featuredImage }}
+			<img
+				src="{{ . | relURL }}"
+				alt="{{ $.Title }}"
+				class="card-image"
+			/>
+			{{ end }}
+			<div class="card-body">
+				<h2 class="card-title">
+					<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+				</h2>
+				<p class="card-summary">{{ .Params.summary }}</p>
+				{{ with .Params.affiliateLink }}
+				<a href="{{ . }}" class="btn" target="_blank" rel="noopener"
+					>Buy on Amazon</a
+				>
+				{{ end }}
+			</div>
+		</article>
+		{{ end }}
+	</section>
+</main>
+{{ end }}

@@ -3,9 +3,13 @@ languageCode = "en"
 languageName = "English"
 weight = 1
 title = "Works without WiFi"
+baseURL = "https://workswithoutwifi.com/"
 
 [params]
-displayName = "EN"
+displayName = "English"
 isoCode = "en"
 rtl = false
 dateFormat = "2 January 2006"
+description = "Explore offline-ready tech for parenting, privacy, minimalism, and off-grid living."
+logo = "img/logo.png"
+defaultBackgroundImage = "/img/background.svg"
