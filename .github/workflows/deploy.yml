@@ -11,6 +11,9 @@ jobs:
         steps:
             - name: Checkout Code
               uses: actions/checkout@v3
+              with:
+                  submodules: true # Ensures submodules (e.g., themes) are cloned
+                  fetch-depth: 0 # Optional: gets full history (needed for some submodules)
 
             - name: Setup Hugo
               uses: peaceiris/actions-hugo@v3
